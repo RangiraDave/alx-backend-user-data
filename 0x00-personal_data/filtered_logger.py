@@ -6,6 +6,7 @@ This module contains a method that returns the log message obfuscated
 import re
 import logging
 import os
+import bcrypt
 import mysql.connector
 
 
@@ -80,3 +81,28 @@ def get_db():
     )
 
     return connector
+
+
+def main():
+    """
+    Connects to the database and retrieves all rows from the users table
+    """
+
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users")
+    [print(user) for user in cursor]
+
+    cursor.close()
+    db.close()
+
+
+    def hash_password(password: str) -> bytes:
+        """
+        Hashes the password using bcrypt
+        """
+
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(password.encode(), salt)
+
+        return hashed_password
