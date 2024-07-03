@@ -1,6 +1,6 @@
 # alx-backend-user-data
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/12/5c48d4f6d4dd8081eb48.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240703%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240703T061201Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=6a49e467cfdf47ad4eaf236c3d69aece4db041856cbcd6e73c4a20a2e13d6d9b)
+![meme](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/12/5c48d4f6d4dd8081eb48.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240703%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240703T061201Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=6a49e467cfdf47ad4eaf236c3d69aece4db041856cbcd6e73c4a20a2e13d6d9b)
 
 
 ## Resources
