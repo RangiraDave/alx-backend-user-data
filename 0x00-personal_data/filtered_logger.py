@@ -32,7 +32,9 @@ class RedactingFormatter(logging.Formatter):
         Initialize RedactingFormatter object
         """
 
-        super(RedactingFormatter, self).__init__("[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s")
+        super(RedactingFormatter, self).__init__(
+            "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
+            )
         self.fields = fields
 
     def format(self, record: logging.LogRecord) -> str:
@@ -43,9 +45,13 @@ class RedactingFormatter(logging.Formatter):
         """
 
         message = super().format(record)
-        return filter_datum(self.fields, self.REDACTION, message, self.SEPARATOR)
+        return filter_datum(
+            self.fields, self.REDACTION, message, self.SEPARATOR
+            )
+
 
 PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
+
 
 def get_logger() -> logging.Logger:
     """
@@ -97,12 +103,20 @@ def main():
     db.close()
 
 
-    def hash_password(password: str) -> bytes:
-        """
-        Hashes the password using bcrypt
-        """
+def hash_password(password: str) -> bytes:
+    """
+    Hashes the password using bcrypt
+    """
 
-        salt = bcrypt.gensalt()
-        hashed_password = bcrypt.hashpw(password.encode(), salt)
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode(), salt)
 
-        return hashed_password
+    return hashed_password
+
+
+def is_valid(hashed_password: bytes, password: str) -> bool:
+    """
+    Validates if the provided password matches the hashed password
+    """
+
+    return bcrypt.checkpw(password.encode(), hashed_password)
