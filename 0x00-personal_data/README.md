@@ -55,11 +55,18 @@ Implement the `format` method to filter values in incoming log records using `fi
 
 ### 2. Create logger (mandatory)
 
+Use [user_data.csv](https://intranet.alxswe.com/rltoken/cVQXXtttuAobcFjYFKZTow) for this task
+
 Implement a `get_logger` function that returns a `logging.Logger` object.
 
 The logger should be named "user_data" and only log up to `logging.INFO` level. It should not propagate messages to other loggers. It should have a `StreamHandler` with `RedactingFormatter` as the formatter.
 
 Create a tuple `PII_FIELDS` constant at the root of the module containing the fields from `user_data.csv` that are considered PII. `PII_FIELDS` can contain only 5 fields - choose the right list of fields that are considered as "important" PIIs or information that you must hide in your logs. Use it to parameterize the formatter.
+
+<em>Tips:</em>
+- [What Is PII, non-PII, and personal data?](https://piwik.pro/blog/what-is-pii-personal-data/)
+- [Uncovering Password Habits](https://www.digitalguardian.com/blog/uncovering-password-habits-are-users%E2%80%99-password-security-habits-improving-infographic)
+
 
 ### 3. Connect to secure database (mandatory)
 
