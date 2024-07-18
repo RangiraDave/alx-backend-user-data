@@ -70,6 +70,30 @@ def login() -> str:
     return response
 
 
+@app.route('/sessions', methods=['DELETE'], strict_slashes=False)
+def logout() -> str:
+    """
+    DELETE /sessions
+    Logout a user
+    Return:
+        - redirect to GET /
+    """
+
+    session_id = request.cookies.get('session_id')
+    if not session_id:
+        abort(403)
+
+    user = AUTH.get_user_from_session_id(session_id)
+    if not user:
+        abort(403)
+
+    AUTH.destroy_session(user.id)
+    response = redirect(url_for('index'))
+    response.delete_cookie('session_id')
+
+    return response
+
+
 @app.route('/profile', methods=['GET'], strict_slashes=False)
 def profile() -> str:
     """
